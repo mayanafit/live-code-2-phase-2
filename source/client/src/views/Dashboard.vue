@@ -9,58 +9,44 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <router-link class="nav-link" :to="{name: 'AnimalPage'}">Animals</router-link>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Link</a>
+                  <router-link class="nav-link" :to="{name: 'FavoritePage'}">My Favorites</router-link>
                 </li>
               </ul>
-            <button class="btn btn-dark my-2 my-sm-0" type="button">Logout</button>
+            <button @click="logout" class="btn btn-dark my-2 my-sm-0" type="button">Logout</button>
             </div>
         </nav>
-
-        <div class="container" style="margin: 50px auto">
-            <h1 class="text-center">Animals</h1>
-            <div class="row my-5">
-                <div class="col-sm-3 mt-4">
-                    <div class="card" style="width: 16rem;">
-                        <img src="" class="card-img-top" alt="ini image.">
-                        <div class="card-body d-flex flex-column">
-                            <div>
-                                <h5 class="card-title text-center">Tikus</h5>
-                                <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <a role="button" class="btn btn-warning mt-4">Add to Favorites</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container" style="margin: 50px auto">
-            <h1 class="text-center">My Favorites</h1>
-            <div class="row my-5">
-                <div class="col-sm-3 mt-4">
-                    <div class="card" style="width: 16rem;">
-                        <img src="" class="card-img-top" alt="ini image.">
-                        <div class="card-body d-flex flex-column">
-                            <div>
-                                <h5 class="card-title text-center">Tikus</h5>
-                                <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <a role="button" class="btn btn-danger text-light mt-4">Remove from Favorites</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <router-view/>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Dashboard'
+  name: 'Dashboard',
+  methods: {
+    logout() {
+      localStorage.clear()
+      this.$router.push({name: 'Home'})
+    }
+  },
+  beforeRouteLeave (to, from, next) {
+    if(to.name === 'Home') {
+      swal({
+        title: "Logout from Animal Kingdom?",
+        text: "You cant come back anytime you want! :)",
+        icon: "",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            this.logout()
+          }
+        });
+      }
+  }
 }
 </script>
 
