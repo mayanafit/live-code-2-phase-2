@@ -65,7 +65,6 @@ export default new Vuex.Store({
         },
       })
         .then((result) => {
-          console.log(result.data.favorites);
           context.commit('SET_FAVORITES', result.data.favorites);
         })
         .catch(() => {

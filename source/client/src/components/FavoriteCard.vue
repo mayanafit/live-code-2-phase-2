@@ -1,18 +1,18 @@
 <template>
     <div class="col-sm-3 mt-4">
-        <div class="card" style="width: 16rem;">
+        <div class="card h-100" style="width: 16rem;">
             <img :src="favorite.Animal.imageUrl" class="card-img-top" alt="ini image.">
             <div class="card-body d-flex flex-column">
                 <div>
                     <h5 class="card-title text-center">{{favorite.Animal.name}}</h5>
                     <p class="card-text text-center">{{favorite.Animal.description}}</p>
                 </div>
-                <a @click="deleteFavorite(favorite.Animal.id)"
-                role="button"
-                class="btn btn-danger text-light mt-4">
-                    Remove from Favorites
-                </a>
             </div>
+            <a @click="deleteFavorite(favorite.Animal.id)"
+            role="button"
+            class="btn btn-danger text-light mt-4">
+                Remove from Favorites
+            </a>
         </div>
     </div>
 </template>

@@ -19,11 +19,7 @@ export default {
   },
   created() {
     this.$store.dispatch('fetchFavorites');
-    console.log('ini fav', this.$store.state.favorites);
   },
 };
 </script>
 
-<style>
-
-</style>

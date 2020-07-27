@@ -36,7 +36,16 @@ module.exports = {
         description: "Extremely thick winter fur!",
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        id: 4,
+        name: "Cat",
+        imageUrl: "https://a-z-animals.com/media/animals/images/470x370/cat_14.jpg",
+        description: "Cutest creature in this world!",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
     ], {});
   },
 

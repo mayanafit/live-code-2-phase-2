@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light d-flex" 
+        <nav class="navbar navbar-expand-lg navbar-light d-flex"
         style="background: palegreen; justify-content: space-between">
             <router-link :to="{name: 'AnimalPage'}" class="navbar-brand">
               🦁
