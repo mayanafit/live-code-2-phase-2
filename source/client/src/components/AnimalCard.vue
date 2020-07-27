@@ -7,7 +7,11 @@
                     <h5 class="card-title text-center">{{animal.name}}</h5>
                     <p class="card-text text-center">{{animal.description}}</p>
                 </div>
-                <a @click="addFavorite(animal.id)" role="button" class="btn btn-warning mt-4">Add to Favorites</a>
+                <a @click="addFavorite(animal.id)"
+                role="button"
+                class="btn btn-warning mt-4">
+                    Add to Favorites
+                </a>
             </div>
         </div>
     </div>
@@ -16,13 +20,13 @@
 <script>
 export default {
   name: 'AnimalCard',
-  props: [`animal`],
+  props: ['animal'],
   methods: {
     addFavorite(id) {
-        this.$store.dispatch('addFavorite', id)
-    }
-  }
-}
+      this.$store.dispatch('addFavorite', id);
+    },
+  },
+};
 </script>
 
 <style>

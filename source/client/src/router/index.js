@@ -26,8 +26,8 @@ const routes = [
         path: 'favorites',
         name: 'FavoritePage',
         component: FavoritePage,
-      }
-    ]
+      },
+    ],
   },
 ];
 
@@ -39,12 +39,12 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.name !== 'Home' && !localStorage.access_token) {
-    next({ name: 'Home' })
+    next({ name: 'Home' });
   } else if (to.name === 'Home' && localStorage.access_token) {
-    next({ name: 'AnimalPage' })
+    next({ name: 'AnimalPage' });
   } else {
-    next()
+    next();
   }
-})
+});
 
 export default router;

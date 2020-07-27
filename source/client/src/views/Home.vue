@@ -3,24 +3,37 @@
     <div class="ml-5">
         <img width="700" src="https://i.pinimg.com/originals/3c/48/bf/3c48bfd76cffef0325f1659ab8123b27.jpg" alt="kucing">
     </div>
-    <div class="" style="width: 30%; margin-top: 100px; margin-right: 200px;">
-        <h1>Welcome to Animal Kingdom!</h1>
+    <div class="" style="width: 40%; margin-top: 50px; margin-right: 200px;">
+        <h1 class="text-center">Welcome to Animal Kingdom!</h1>
         <br>
-        <form @submit.prevent="login">
-            <h2>Login Page</h2>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input v-model="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
-              <small id="emailHelp" class="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small>
+        <div id="form">
+          <form @submit.prevent="login" class="d-flex flex-column">
+            <div>
+              <h2 class="text-center mb-3" style="text-decoration: underline;">Login Page</h2>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input
+                v-model="email"
+                type="email"
+                class="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+                placeholder="youremail@example.com">
+                <small id="emailHelp" class="form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                v-model="password"
+                type="password"
+                class="form-control" id="password" placeholder="*******">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input v-model="password" type="password" class="form-control" id="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+              <button type="submit" class="btn btn-warning mt-3">Login</button>
+          </form>
+        </div>
     </div>
   </div>
 </template>
@@ -33,17 +46,25 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
-    }
+      password: '',
+    };
   },
   methods: {
     login() {
-      let user = {
+      const user = {
         email: this.email,
-        password: this.password
-      }
-      this.$store.dispatch(`processLogin`, user)
-    }
-  }
+        password: this.password,
+      };
+      this.$store.dispatch('processLogin', user);
+    },
+  },
 };
 </script>
+<style scoped>
+  #form {
+    background: palegreen;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+</style>
