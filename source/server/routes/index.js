@@ -10,5 +10,6 @@ router.use(authentication)
 router.get(`/animals`, AnimalController.read)
 router.get(`/favorites`, FavoriteController.read)
 router.post(`/favorites/:id`, FavoriteController.add)
+router.delete(`/favorites/:id`, FavoriteController.delete)
 
 module.exports = router
