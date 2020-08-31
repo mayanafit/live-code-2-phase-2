@@ -2,6 +2,10 @@
 
 ## AnimalLover
 
+ENV:
+SECRET=MANYTOMANY
+PORT=3000
+
 How to use:
 
     cd server > npm i > node app.js / nodemon app.js
