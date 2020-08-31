@@ -23,6 +23,7 @@ server:
 client:
 
     Vue
+    Bootstrap
     HTML & CSS
 
 this is a live code with duration 180'
